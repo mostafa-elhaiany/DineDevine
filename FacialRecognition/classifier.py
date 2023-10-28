@@ -19,14 +19,22 @@ class FacePersonalityoNet(nn.Module):
 
 class FeatureVectorDataset(Dataset):
     def __init__(self, csv_file):
+        personalities_list = ["ENFJ", "ENFP", "ENTJ", "ENTP", "ESFJ", "ESFP", "ESTJ", "ESTP", "INFJ", "INFP", "INTJ",
+                              "INTP", "ISFJ", "ISFP", "ISTJ", "ISTP"]
         self.data = pd.read_csv(csv_file)
+        self.data = self.data[self.data['label'].isin(personalities_list)]
+        self.label_to_idx = {label: idx for idx, label in enumerate(self.data["label"].unique())}
     def __len__(self):
         return len(self.data)
     def __getitem__(self, idx):
-        label = int(self.data.iloc[idx, 0])
+        label_str = self.data.iloc[idx, 0]
+        # Convert string label to its corresponding unique integer ID
+        label = self.label_to_idx[label_str]
+        print(label)
         feature_vector_str = self.data.iloc[idx, 1]
-        feature_vector = np.array(ast.literal_eval(feature_vector_str))
+        feature_vector = np.fromstring(feature_vector_str[1:-1], sep=',')
         return torch.tensor(feature_vector, dtype=torch.float32), label
+
 
 def compute_prototypes(embeddings, labels, n_support):
     unique_labels = torch.unique(labels)
@@ -45,8 +53,9 @@ if __name__ == "__main__":
     input_dim = 2048
     epochs = 50 # up to testing
 
-    dataset = FeatureVectorDataset("path_to_your_csv_file.csv")
+    dataset = FeatureVectorDataset("data.csv")
     dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
+    print("finished loading data")
 
     model = FacePersonalityoNet(input_dim, embed_dim)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
