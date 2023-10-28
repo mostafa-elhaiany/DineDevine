@@ -7,7 +7,6 @@ import {
     IonToolbar,
 } from '@ionic/react';
 import './Tab1.css';
-import Spline from '@splinetool/react-spline';
 
 const Tab1: React.FC = () => {
     return (
@@ -23,11 +22,6 @@ const Tab1: React.FC = () => {
                         <IonTitle size="large">Tab 1</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-
-                {/* Display the Spline scene here */}
-                <div>
-                    <Spline scene="https://prod.spline.design/D3fs8iE9D8i5v2sx/scene.splinecode" />
-                </div>
 
             </IonContent>
         </IonPage>
