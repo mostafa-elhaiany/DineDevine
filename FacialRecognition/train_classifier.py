@@ -27,10 +27,11 @@ class FeatureVectorDataset(Dataset):
 
     def __getitem__(self, idx):
         label_str = self.data.iloc[idx, 0]
+        # print(f"\nLabel string for index {idx}: {label_str}")
         label = self.label_to_idx[label_str]
         feature_vector_str = self.data.iloc[idx, 1]
-        feature_vector = np.fromstring(feature_vector_str[1:-1], sep=',')
-
+        feature_vector = np.fromstring(feature_vector_str[1:-1], sep=' ')
+        #print(f"Converted feature vector for index {idx}: {feature_vector}")
         return torch.tensor(feature_vector, dtype=torch.float32), label
 
 
@@ -73,3 +74,5 @@ if __name__ == "__main__":
 
     # Save model parameters after training
     torch.save(model.state_dict(), 'model_parameters.pth')
+
+
