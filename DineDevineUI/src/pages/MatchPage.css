@@ -9,13 +9,15 @@
 .grid {
     display: grid;
     height: 100%;
-    grid-template-rows: 50% auto auto auto 10%;
+    grid-template-rows: 40% auto auto auto 10%;
+    margin: 1rem;
 }
 
 .grid-item {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 8px;
 }
 
 .match-button-section {

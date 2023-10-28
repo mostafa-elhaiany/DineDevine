@@ -9,7 +9,6 @@ import {
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
-import './ProfilePage.css';
 
 const enum interests {
     hiking,
