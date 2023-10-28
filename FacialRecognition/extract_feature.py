@@ -26,10 +26,14 @@ class ResnetFeatureExtractor:
     def get_feature_vector(self, image_path, show_face_detection=False):
         '''
         :param image_path
-        :param show_face_detection: a windows pops out with detected face
+        :param show_face_detection: if set to true a windows pops out with detected face
         :return: feature vector as numpy array
         '''
         img = cv2.imread(image_path)
+        if img is None:
+            print("Invalid inout path: not an image!")
+            return None
+
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
         results = self.face_detection.process(img_rgb) # detect face
