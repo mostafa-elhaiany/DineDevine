@@ -2,7 +2,7 @@ import os
 import csv
 import numpy as np
 from extract_feature import ResnetFeatureExtractor
-from sklearn import KNeighborsClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 class PrototypeNetwork():
     def __init__(self):
@@ -24,21 +24,33 @@ class PrototypeNetwork():
                         vector = np.fromstring(row[1][1:-1], sep=' ')
                         sum_features = sum_features + vector
                 self.mean_vectors[personality].append(np.divide(sum_features,n))
+                
+    def getDataVector(self):
+        with open('FacialRecognition/data.csv', 'r') as datafile:
+            datareader = csv.reader(datafile)
+            datafile.seek(0)
+            data = [] 
+            for row in datareader:
+                vector = np.fromstring(row[1][1:-1], sep=' ').tolist()
+                data.append(vector)
+            return data
+    
+    def getLabels(self):
+        with open('FacialRecognition/data.csv', 'r') as datafile:
+            datareader = csv.reader(datafile)
+            datafile.seek(0)
+            y = []
+            for row in datareader:
+                y.append(row[0])
+            return y
+
     def classify(self, path):
         features = self.resnet.get_feature_vector(path)
-        print(features.size)
-        distances = np.zeros(len(self.personalities))
-        for i in range(len(self.personalities)):
-            print(len(self.mean_vectors[self.personalities[i]]))
-            distances[i] = np.linalg.norm(self.mean_vectors[self.personalities[i]] - features)
-        classify_result = self.personalities[distances.argmin()]
-        print(classify_result)
-
-
-
-
-                    
+        neigh = KNeighborsClassifier(n_neighbors=1)
+        X = self.getDataVector()
+        y = self.getLabels()
+        neigh.fit(X,y)
+        print(neigh.predict(features.reshape(1,-1)))
                 
 proto = PrototypeNetwork()
-proto.calculateMeans()
 proto.classify("FacialRecognition/ISTJ/denzel_washington.png")
