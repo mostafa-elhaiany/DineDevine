@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     IonButton, IonButtons,
-    IonContent,
+    IonContent, IonDatetime,
     IonHeader, IonIcon,
     IonPage,
     IonTitle,
@@ -28,7 +28,17 @@ const MatchPage: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <p>Test</p>
+                <div className={"grid"}>
+                    <div className={"grid-item"}></div>
+                    <div className={"grid-item"}>Select Time:</div>
+                    <div className={"grid-item"}>
+                        <IonDatetime locale="de-DE" presentation="time" />
+                    </div>
+                    <div className={"match-button-section"}>
+                        <IonButton className={"match-button"} size="large">Match!</IonButton>
+                    </div>
+                    <div className={"grid-item"}></div>
+                </div>
             </IonContent>
         </IonPage>
     );

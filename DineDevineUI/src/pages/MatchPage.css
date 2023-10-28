@@ -5,3 +5,25 @@
 .invisible {
     visibility: hidden;
 }
+
+.grid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 50% auto auto auto 10%;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.match-button-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.match-button {
+    width: 45%;
+}
