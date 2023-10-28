@@ -19,20 +19,9 @@ class Label:
                         path = root + "/" + file
                         features = self.resnet.get_feature_vector(path)
                         personality = os.path.basename(root)
-                        writer.writerow([f"{personality}, {np.array_str(features)}"])
+                        writer.writerow([personality, features])
 
             datafile.close()
 
 labeler = Label("FacialRecognition")
 labeler.createCSV()
-
-
-total_bytes = -1
-
-with open("data.csv") as file_in:
-    for line in file_in:
-        bytes_on_this_line = len(line) + 1
-        total_bytes += bytes_on_this_line
-print(total_bytes)
-
-print(os.path.getsize("data.csv"))
