@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import torch
 import torch.nn as nn
 import pandas as pd
@@ -67,3 +68,14 @@ if __name__ == "__main__":
 
     # Save model parameters after training
     torch.save(model.state_dict(), 'model_parameters.pth')
+=======
+import os
+from extract_feature import ResnetFeatureExtractor
+
+classifier = ResnetFeatureExtractor()
+path = "tom_cruise.png"
+features = classifier.get_feature_vector(os.path.basename(path))
+print(features)
+
+
+>>>>>>> ca8d456 (Upload partial prototype network)
