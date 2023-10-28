@@ -55,4 +55,29 @@ request body needs to have a json with user info
 deletes user with this id 
 ```
 
+## Enneagram API
 
+The Enneagram database looks like the following:
+```
+{
+    "_id": 1 of the 16 enneagram types,
+    "Name": every type has a name (Architect, Guardian, etc),
+    "Intro": Introduction text,
+    "SandW": Strengths and weaknesses,
+    "RomRel": Romantic relation information,
+    "Friendships": Friendship information,
+    "Parenthood": Parenthood information,
+    "Career": Career information,
+    "Workplace": personality in the workplace information,
+    "Conc": conclusion text
+}
+
+```
+
+### Read
+
+```
+(route="/enneagram/<id>", methods=("GET",)) 
+
+Returns information about the enneagram with id
+```
