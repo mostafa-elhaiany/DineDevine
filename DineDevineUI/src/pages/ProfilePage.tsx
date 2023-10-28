@@ -8,7 +8,6 @@ import {
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
-import './ProfilePage.css';
 
 const ProfilePage: React.FC = () => {
     return (

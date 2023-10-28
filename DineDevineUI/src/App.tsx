@@ -26,6 +26,8 @@ import MatchPage from "./pages/MatchPage";
 import React from "react";
 import {Redirect, Route} from "react-router";
 import ProfilePage from "./pages/ProfilePage";
+import WaitingPage from "./pages/WaitingPage";
+import SelectRestaurantPage from "./pages/SelectRestaurantPage";
 
 setupIonicReact();
 
@@ -35,6 +37,8 @@ const App: React.FC = () => (
         <IonRouterOutlet>
             <Route path="/profile" component={ProfilePage} />
             <Route path="/match" component={MatchPage} />
+            <Route path="/waiting" component={WaitingPage} />
+            <Route path="/select-restaurant" component={SelectRestaurantPage} />
             <Redirect exact from="/" to="/match" />
         </IonRouterOutlet>
     </IonReactRouter>
