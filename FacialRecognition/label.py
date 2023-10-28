@@ -3,7 +3,7 @@ import csv
 import sys
 import numpy as np
 from extract_feature import ResnetFeatureExtractor
-class Lable:
+class Label:
     def __init__(self, root):
         self.root = root
         self.resnet = ResnetFeatureExtractor()
@@ -23,8 +23,8 @@ class Lable:
 
             datafile.close()
 
-labler = Lable("FacialRecognition")
-labler.createCSV()
+labeler = Label("FacialRecognition")
+labeler.createCSV()
 
 
 total_bytes = -1
