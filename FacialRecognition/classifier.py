@@ -45,7 +45,6 @@ if __name__ == "__main__":
     input_dim = 2048
     epochs = 50 # up to testing
 
-    # Define dataset and dataloader
     dataset = FeatureVectorDataset("path_to_your_csv_file.csv")
     dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
 
