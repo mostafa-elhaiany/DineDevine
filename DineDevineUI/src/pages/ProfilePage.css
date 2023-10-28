@@ -1,3 +1,33 @@
 .center-title{
     text-align: center;
 }
+
+.invisible {
+    visibility: hidden;
+}
+
+.avatar{
+    width:100% !important;
+    height : 100% !important;
+    max-width: 150px !important;
+    max-height: 150px !important;
+    align-self: center;
+}
+
+.vertical-align-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.avatarContainer{
+    display: flex;
+    justify-content: end;
+}
