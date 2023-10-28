@@ -27,7 +27,7 @@ class ResnetFeatureExtractor:
         '''
         :param image_path
         :param show_face_detection: if set to true a windows pops out with detected face
-        :return: feature vector as numpy array
+        :return: feature vector as numpy array, None if something goes wrong
         '''
         img = cv2.imread(image_path)
         if img is None:
