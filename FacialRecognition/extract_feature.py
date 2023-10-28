@@ -31,7 +31,7 @@ class ResnetFeatureExtractor:
         '''
         img = cv2.imread(image_path)
         if img is None:
-            print("Invalid inout path: not an image!")
+            print("Invalid inout path: not an image! Image: " + image_path)
             return None
 
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -65,6 +65,6 @@ class ResnetFeatureExtractor:
 
 extractor = ResnetFeatureExtractor()
 
-for images in os.listdir("ENFJ"):
-    feature_vector = extractor.get_feature_vector("ENFJ/" + images, True)
-    print(feature_vector)
+#for images in os.listdir("ENFJ"):
+    #feature_vector = extractor.get_feature_vector("ENFJ/" + images, True)
+    #print(feature_vector)
