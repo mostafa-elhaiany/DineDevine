@@ -11,7 +11,7 @@ def get_feature_vector(img, show_face_detection=False):
     face_detection = mp.solutions.face_detection.FaceDetection(min_detection_confidence=0.2)
     device = 'cpu'
 
-    original_model = models.resnet50(pretrained=False)
+    original_model = models.resnet18(pretrained=False)
     features = torch.nn.Sequential(*list(original_model.children())[:-1]).to(device)
 
     preprocess = transforms.Compose([
@@ -60,4 +60,4 @@ def get_feature_vector(img, show_face_detection=False):
 
 #for images in os.listdir("ENFJ"):
 #    feature_vector = get_feature_vector(cv2.imread("ENFJ/" + images), True)
-#     print(feature_vector)
+#    print(feature_vector)
