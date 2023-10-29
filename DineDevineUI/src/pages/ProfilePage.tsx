@@ -55,7 +55,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
     const [dislikeTAG, setDislikeTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("dislikes")?? "[]") ?? [])
     const [name, setName] = useState(localStorage.getItem("name"))
     const [email, setEmail] = useState(localStorage.getItem("email"))
-    const [personalityType, setPersonalityType] = useState<string>(localStorage.getItem("personality") ?? "Default")
+    const [personalityType, setPersonalityType] = useState<string>(localStorage.getItem("personality") ?? "INFP")
     const [photo, setPhoto] = useState(localStorage.getItem("photo") ?? "")
 
     function getAvatar() {
@@ -138,8 +138,8 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     <IonRow>
                         <IonCol>
                             <IonCard>
-                                <h1 className={"ion-margin-start profileHeadline"}>Personality</h1>
-                                <IonSelect className={"ion-margin-start persoSelect"} label={"Personality Type:"} placeholder={personalityType} onIonChange={(e) => changePersonality(e)} >
+                                <h1 className={"ion-margin-start profileHeadline"}>Personality </h1>
+                                <p className={"ion-margin-start persoLabel"}>Personality Type: </p><IonSelect className={"ion-margin-start persoSelect"} aria-label={personalityType} placeholder={personalityType}  onIonChange={(e) => changePersonality(e)} >
                                     {Object.keys(PERONALITY_TYPES).filter((v) => isNaN(Number(v)) ).map((tag, idx) => <IonSelectOption key={tag+idx} id={"button" + tag}>{tag}</IonSelectOption>)}
                                 </IonSelect>
                                 <div className={"ion-margin-start"}>
