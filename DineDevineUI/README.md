@@ -1,4 +1,7 @@
 # Ionic React Capacitor Frontend PWA App
+![Screenshot 1](./public/img/screenshot1.png)
+![Screenshot 2](./public/img/screenshot2.png)
+![GIF Example](./public/match-placeholder-unscreen.gif)
 
 This is an Ionic React Capacitor-based Progressive Web App (PWA) for building cross-platform web and mobile applications.
 
