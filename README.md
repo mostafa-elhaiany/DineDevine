@@ -10,4 +10,5 @@ Make sure to have an .env file with the following keys
 MONGO_USERNAME=""
 MONGO_PASSWORD=""
 MONGO_URI=""
+openai_api=""
 ```
