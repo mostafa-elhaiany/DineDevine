@@ -1,0 +1,88 @@
+.center-title{
+    text-align: center;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.avatar{
+    width:100% !important;
+    height : 100% !important;
+    max-width: 150px !important;
+    max-height: 150px !important;
+    align-self: center;
+}
+
+.vertical-align-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.avatarContainer {
+    display: flex;
+    justify-content: end;
+}
+
+.ion-delegate-host {
+    background: white;
+}
+
+/* Add this CSS code to your styles.css (or equivalent) file */
+.achievements-card .ion-col {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optional: Add spacing between the icons and text */
+.achievements-card .ion-col ion-img {
+    margin-bottom: 10px;
+}
+
+/* Optional: Increase the spacing between columns */
+.achievements-card ion-row ion-col {
+    margin: 10px;
+}
+
+
+.profileHeadline {
+    font-family: PlaypenSansRegularFont, serif;
+    color: #FFA620;
+}
+
+.persoSelect {
+    width: 35%;
+    justify-content: start;
+}
+
+.profileContainer {
+    --ion-background-color: linear-gradient(0deg, #FDF9F6, #FFFAF5);
+}
+
+.profileHeader {
+    --ion-background-color: white;
+}
+
+.persoLabel {
+    display: inline;
+    font-size: medium;
+}
+
+ion-card {
+    background: white;
+}
+
+.alert-wrapper.sc-ion-alert-md {
+    background: white !important;
+}

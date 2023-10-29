@@ -1,0 +1,9 @@
+Flask
+Pillow
+opencv-python
+Flask-Cors
+scikit-learn
+pymongo
+torch 
+torchvision 
+mediapipe
