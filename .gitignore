@@ -1,4 +1,5 @@
 .env
-.key
 .DS_Store
 __pycache__
+.idea/
+.elasticbeanstalk/

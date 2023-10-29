@@ -44,17 +44,5 @@ def read(id):
     return  enneagram_dict
 
 
-def get_feature_vector(image):
-    '''
-    returns the feature vector of the image uploaded
-    '''
-    #TODO
-    pass
 
 
-@enneagrams_page.route("/enneagrams/", methods=("GET",))
-def return_ennegram_based_on_looks():
-    '''
-    Runs Kmeans clustering in 
-    '''
-    return {}

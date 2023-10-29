@@ -7,28 +7,31 @@ import csv
 from sklearn.neighbors import KNeighborsClassifier
 from extract_feature import get_feature_vector
 
+
 def image2enneagramm(base64_string):
     imgdata = base64.b64decode(str(base64_string))
     img = Image.open(io.BytesIO(imgdata))
-    opencv_img= cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
+    opencv_img = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
 
     features = get_feature_vector(opencv_img)
     neigh = KNeighborsClassifier(n_neighbors=2)
     X = getDataVector()
     y = getLabels()
-    neigh.fit(X,y)
-    print(neigh.predict(features.reshape(1,-1)))
+    neigh.fit(X, y)
+    return neigh.predict(features.reshape(1, -1))
+
 
 def getDataVector():
     with open('FacialRecognition/data.csv', 'r') as datafile:
         datareader = csv.reader(datafile)
         datafile.seek(0)
-        data = [] 
+        data = []
         for row in datareader:
             vector = np.fromstring(row[1][1:-1], sep=' ').tolist()
             data.append(vector)
         return data
-    
+
+
 def getLabels():
     with open('FacialRecognition/data.csv', 'r') as datafile:
         datareader = csv.reader(datafile)
