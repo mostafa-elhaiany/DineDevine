@@ -30,7 +30,7 @@ const WaitingPage: React.FC<RouteComponentProps> = (props, context) => {
                         <img alt={"two people meeting"} src={"/waiting.gif"}  />
                     </div>
                     <div className={"content-container"}>
-                        <span>Test</span>
+                        <span></span>
                     </div>
                 </div>
             </IonContent>
