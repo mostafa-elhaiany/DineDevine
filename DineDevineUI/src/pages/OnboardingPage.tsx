@@ -11,10 +11,13 @@ import {
 } from '@ionic/react';
 import './pages.css'
 import {RouteComponentProps} from "react-router";
+import {usePhotoGallery} from "../hooks/usePhotoGallery";
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import {base64FromPath, usePhotoGallery} from "../hooks/usePhotoGallery";
 
 
 const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
+    defineCustomElements(window);
     useEffect(() => {
         const name = localStorage.getItem('name');
         const email = localStorage.getItem('email');
