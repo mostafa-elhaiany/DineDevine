@@ -11,13 +11,12 @@ import {
 } from '@ionic/react';
 import './pages.css'
 import {RouteComponentProps} from "react-router";
-import {usePhotoGallery} from "../hooks/usePhotoGallery";
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-import {base64FromPath, usePhotoGallery} from "../hooks/usePhotoGallery";
+import {base64FromPath, usePhotoGallery, UserPhoto} from "../hooks/usePhotoGallery";
 
 
 const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
-    defineCustomElements(window);
+    defineCustomElements(window)
     useEffect(() => {
         const name = localStorage.getItem('name');
         const email = localStorage.getItem('email');
@@ -30,7 +29,7 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [photo, setPhoto] = useState(localStorage.getItem('email') ?? "")
+    const [photo, setPhoto] = useState(localStorage.getItem('photo') ?? "")
     const { photos, takePhoto } = usePhotoGallery();
 
     const onSubmit = (e) => {
@@ -53,11 +52,9 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
 
     const addImage = async () => {
         console.log("addImage")
-        await takePhoto()
-        if(photos.length != 1)
-            return
-        const b64 = await base64FromPath(photos[0].webviewPath)
-        console.log(b64)
+        var b64 = await takePhoto()
+        //await delay(500)
+        console.log("addImage2", b64)
         localStorage.setItem("photo", b64 )
         setPhoto(b64)
 
@@ -69,6 +66,10 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
         }
         return photo
 
+    }
+
+    function delay(ms: number) {
+        return new Promise( resolve => setTimeout(resolve, ms) );
     }
 
     return (

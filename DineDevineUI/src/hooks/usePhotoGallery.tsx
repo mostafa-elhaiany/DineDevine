@@ -71,7 +71,7 @@ export function usePhotoGallery() {
         loadSaved();
     }, []);
 
-    const takePhoto = async () => {
+    const takePhoto = async () :Promise<string> => {
         try {
             const photo = await Camera.getPhoto({
                 resultType: CameraResultType.Uri,
@@ -79,10 +79,14 @@ export function usePhotoGallery() {
                 quality: 100,
             });
 
+
+
             const fileName = Date.now() + '.jpeg';
             const savedFileImage = await savePicture(photo, fileName);
             const newPhotos = [savedFileImage, ...photos];
             setPhotos(newPhotos);
+
+            return base64FromPath(savedFileImage.webviewPath!!)
 
             // Store the updated photos in Preferences
             Preferences.set({ key: PHOTO_STORAGE, value: JSON.stringify(newPhotos) });
@@ -90,6 +94,7 @@ export function usePhotoGallery() {
             console.error('Error taking photo:', error);
             // Handle the error as needed
         }
+
     };
 
     return {
