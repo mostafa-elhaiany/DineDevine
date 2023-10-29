@@ -1,0 +1,12 @@
+@font-face {
+    font-family: MontserratRegularFont;
+    src: url(/public/fonts/Montserrat-Regular.ttf);
+}
+
+html {
+    --ion-background-color: transparent;
+}
+
+body {
+    font-family: MontserratRegularFont, sans-serif;
+}
