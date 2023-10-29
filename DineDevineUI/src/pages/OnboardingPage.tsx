@@ -44,36 +44,38 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
 
             console.log("Sending Request")
 
-            // Workaround because Host URL is dynamically generated
-            const headers =
-                {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS'
-                }
+            // // Workaround because Host URL is dynamically generated
+            // const headers =
+            //     {
+            //         'Content-Type': 'application/json',
+            //         'Access-Control-Allow-Origin': '*',
+            //         'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS'
+            //     }
+            //
+            // // Make a GET request to the API with the provided IDs
+            // const response = await fetch(`https://rnpxo-80-187-122-115.a.free.pinggy.online/users`, {
+            //     method: "POST",
+            //     body: JSON.stringify({
+            //         name: name,
+            //         email: email,
+            //         image: IMAGE_MOSTAFA_B64,
+            //         headers: headers
+            //     })
+            // })
+            //     .then((response) => response.json())
+            //     .catch((error) => {
+            //         console.error('Error fetching data:', error);
+            //     });
+            //
+            // console.log(response)
+            //
+            // const userId = parseInt(response["ID"]);
+            // console.log("userId: " + userId)
+            // localStorage.setItem('userId', userId.toString());
 
-            // Make a GET request to the API with the provided IDs
-            const response = await fetch(`https://rnpxo-80-187-122-115.a.free.pinggy.online/users`, {
-                method: "POST",
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    image: IMAGE_MOSTAFA_B64,
-                    headers: headers
-                })
-            })
-                .then((response) => response.json())
-                .catch((error) => {
-                    console.error('Error fetching data:', error);
-                });
-
-            console.log(response)
-
-            const userId = parseInt(response["ID"]);
-            console.log("userId: " + userId)
-            localStorage.setItem('userId', userId.toString());
-
-            props.history.push("/match")
+            setTimeout(() => {
+                props.history.push("/match")
+            }, 1463)
         }
     }
 

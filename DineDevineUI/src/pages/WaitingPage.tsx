@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     IonButton, IonButtons,
     IonContent, IonDatetime,
@@ -11,16 +11,11 @@ import {RouteComponentProps} from "react-router";
 
 
 const WaitingPage: React.FC<RouteComponentProps> = (props, context) => {
-
-    // TODO:
-    // Add animation / info graphic from Heidi
-    // 1. Show waiting screen
-    // 2. Pool match status
-    // 3. if match found -> swap video
-    // 4. play video until finished -> change route to SelectRestaurant
-    // setTimeout(() => {
-    //     props.history.push('/select-restaurant');
-    // }, 2000)
+    useEffect(() => {
+        setTimeout(() => {
+            props.history.push('/icebreaker');
+        }, 10000)
+    }, []);
 
     return (
         <IonPage>

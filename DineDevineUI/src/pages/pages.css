@@ -147,3 +147,7 @@
 ion-button > img {
     animation: wiggle 3.5s infinite;
 }
+
+ion-label {
+    text-wrap: pretty !important;
+}

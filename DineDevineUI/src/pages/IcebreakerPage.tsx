@@ -1,8 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar, IonItem, IonLabel } from '@ionic/react';
+import {
+    IonContent,
+    IonHeader,
+    IonList,
+    IonPage,
+    IonTitle,
+    IonToolbar,
+    IonItem,
+    IonLabel,
+    IonButton, IonIcon
+} from '@ionic/react';
+import './pages.css'
+import {personCircleOutline} from "ionicons/icons";
 
 const IcebreakerPage = ({ match }) => {
-    const [questions, setQuestions] = useState([]);
+    const [questions, setQuestions] = useState(
+        ["If you could invite any famous person to join us for lunch, who would it be and why?",
+        "Describe yourself with 3 words",
+        "What animal?"]);
+
 
     useEffect(() => {
         const id1 = match.params.id1;
@@ -23,7 +39,7 @@ const IcebreakerPage = ({ match }) => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Match Questions</IonTitle>
+                    <IonTitle className={'center-title'}>Icebreakers</IonTitle>
                 </IonToolbar>
             </IonHeader>
 
@@ -31,7 +47,7 @@ const IcebreakerPage = ({ match }) => {
                 <IonList>
                     {questions.map((question, index) => (
                         <IonItem key={index}>
-                            <IonLabel>{question}</IonLabel>
+                            <IonLabel className={"wrap-text"} >{question}</IonLabel>
                         </IonItem>
                     ))}
                 </IonList>
