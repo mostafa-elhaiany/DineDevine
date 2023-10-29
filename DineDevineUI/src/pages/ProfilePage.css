@@ -77,3 +77,11 @@
     display: inline;
     font-size: medium;
 }
+
+ion-card {
+    background: white;
+}
+
+.alert-wrapper.sc-ion-alert-md {
+    background: white !important;
+}
