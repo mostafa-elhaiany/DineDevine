@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {
-    IonButton, IonButtons,
-    IonContent, IonDatetime,
+    IonButton, IonButtons, IonModal,
+    IonContent, IonDatetime, IonDatetimeButton,
     IonHeader, IonIcon,
     IonPage,
     IonTitle,
@@ -16,6 +16,13 @@ const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) =>
     const [numberOfPeople, setNumberOfPeople] = useState(2)
     const currentDate = `${new Date().getHours() + 1}`.slice(-4) + ":00"
     const [time, setTime] = useState(currentDate)
+    const enum interests {
+        Hiking,
+        Painting,
+        Football,
+        Basketball,
+        Tennis
+    }
 
     useEffect(() => {
         const name = localStorage.getItem('name');
@@ -65,8 +72,11 @@ const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) =>
                                 <div className={"people-button"}>
                                     <IonButton fill={"clear"} slot={"start"}>
                                         <IonIcon ios={timeOutline} md={timeOutline}/>
+                                        <IonDatetimeButton datetime="datetime"></IonDatetimeButton>
+                                        <IonModal keepContentsMounted={true}>
+                                            <IonDatetime presentation="time" id="datetime"></IonDatetime>
+                                        </IonModal>
                                     </IonButton>
-                                    <span>{time}</span>
                                 </div>
                             </div>
                         </div>
