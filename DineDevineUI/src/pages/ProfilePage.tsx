@@ -99,7 +99,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
 
     return (
         <IonPage>
-            <IonHeader>
+            <IonHeader className={"profileHeader"}>
                 <IonToolbar>
                     <IonButtons slot="start">
                         <IonBackButton defaultHref="/"></IonBackButton>
@@ -112,7 +112,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
+            <IonContent fullscreen class={"profileContainer"}>
                 <IonGrid class={"ion-margin-top"}>
                     <IonRow class={"ion-margin-top ion-margin-bottom"}>
                         <IonCol className={"avatarContainer"}>
@@ -179,7 +179,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     <IonRow>
                         <IonCol>
                             <IonCard className="achievements-card">
-                                <h1 className="ion-margin-start">Achievements</h1>
+                                <h1 className="ion-margin-start profileHeadline">Achievements</h1>
                                 <IonRow>
                                     <IonCol className="ion-col"> {/* Use "ion-col" class here */}
                                         <IonImg
