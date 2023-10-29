@@ -54,7 +54,9 @@ import {RouteComponentProps} from "react-router";
 
             <IonContent>
                 <div className={"container"}>
-                    <div></div>
+                    <div>
+                        <img alt={"image of restaurant"} src={"/restaurant_transparent.png"}  />
+                    </div>
                     <div className={"content-container"}>
                         <div>
                             <h2>Your Preference</h2>
