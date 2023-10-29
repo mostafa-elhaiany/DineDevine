@@ -135,7 +135,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                                         </IonContent>
                                     </IonPopover>
                                 </div>
-                            </IonCard>
+                            </IonCard
                         </IonCol>
                     </IonRow>
                 </IonGrid>
