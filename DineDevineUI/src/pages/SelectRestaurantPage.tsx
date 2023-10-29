@@ -87,7 +87,7 @@ const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) =>
                             </div>
                         </div>
                         <div className={"select-restaurant-button-section"}>
-                            <IonButton onClick={onSelectRestaurantClicked} href={"/waiting"} className={"match-button"} size="default">Looks good!</IonButton>
+                            <IonButton onClick={onSelectRestaurantClicked} href={"/waiting"} className={"select-restaurant-button"} size="default">Looks good!</IonButton>
                         </div>
                     </div>
                 </div>
