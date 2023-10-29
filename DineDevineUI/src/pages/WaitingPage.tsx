@@ -15,7 +15,7 @@ const WaitingPage: React.FC<RouteComponentProps> = (props, context) => {
     useEffect(() => {
         setTimeout(() => {
             props.history.push('/icebreaker');
-        }, 60000)
+        }, 10000)
     }, []);
 
     return (
