@@ -18,9 +18,9 @@ const WaitingPage: React.FC<RouteComponentProps> = (props, context) => {
     // 2. Pool match status
     // 3. if match found -> swap video
     // 4. play video until finished -> change route to SelectRestaurant
-    setTimeout(() => {
-        props.history.push('/select-restaurant');
-    }, 2000)
+    // setTimeout(() => {
+    //     props.history.push('/select-restaurant');
+    // }, 2000)
 
     return (
         <IonPage>
@@ -29,15 +29,14 @@ const WaitingPage: React.FC<RouteComponentProps> = (props, context) => {
                     <IonTitle className={'center-title'}>Waiting for match...</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
-                <div className={"grid"}>
-                    <div className={"grid-item"}></div>
-                    <div className={"grid-item"}></div>
-                    <div className={"grid-item"}>
+            <IonContent>
+                <div className={"container"} >
+                    <div>
+                        {/*Fill remaining space*/}
                     </div>
-                    <div className={"match-button-section"}>
+                    <div className={"content-container"}>
+                        <span>Test</span>
                     </div>
-                    <div className={"grid-item"}></div>
                 </div>
             </IonContent>
         </IonPage>

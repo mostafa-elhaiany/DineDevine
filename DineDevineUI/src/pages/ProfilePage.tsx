@@ -1,13 +1,14 @@
 import React from 'react';
 import {
-    IonBackButton,
-    IonButton, IonButtons,
-    IonContent,
+    IonBackButton, IonButton,
+    IonButtons,
+    IonContent, IonDatetime,
     IonHeader,
     IonPage,
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
+import "./pages.css"
 
 const ProfilePage: React.FC = () => {
     return (
@@ -24,7 +25,14 @@ const ProfilePage: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <p>Test</p>
+                <div className={"container"} >
+                    <div>
+                        {/*Fill remaining space*/}
+                    </div>
+                    <div className={"content-container"}>
+                        <span>Test</span>
+                    </div>
+                </div>
             </IonContent>
         </IonPage>
     );

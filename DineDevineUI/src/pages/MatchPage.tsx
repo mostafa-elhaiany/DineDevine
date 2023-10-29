@@ -7,7 +7,7 @@ import {
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
-import './MatchPage.css';
+import './pages.css'
 import { personCircleOutline } from 'ionicons/icons';
 
 
@@ -27,16 +27,15 @@ const MatchPage: React.FC = () => {
                     </IonButton>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
-                <div className={"height-full"}>
-                    <div className={"grid"}>
-                        <div className={"grid-item"}>Select Time:</div>
-                        <div className={"grid-item"}>
-                            <IonDatetime locale="de-DE" presentation="time" />
-                        </div>
-                        <div className={"match-button-section"}>
-                            <IonButton href={"/waiting"} className={"match-button"} size="large">Match!</IonButton>
-                        </div>
+            <IonContent>
+                <div className={"container"} >
+                    <div>
+                        {/*Fill remaining space*/}
+                    </div>
+                    <div className={"content-container"}>
+                        <span>Select Time:</span>
+                        <IonDatetime locale="de-DE" presentation="time" />
+                        <IonButton href={"/select-restaurant"} className={"match-button"} size="large">Match!</IonButton>
                     </div>
                 </div>
             </IonContent>
