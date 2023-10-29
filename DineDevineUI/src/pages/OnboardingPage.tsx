@@ -53,7 +53,7 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
                 }
 
             // Make a GET request to the API with the provided IDs
-            const response = await fetch(`https://rnqdg-80-187-122-115.a.free.pinggy.online/users`, {
+            const response = await fetch(`https://rnpxo-80-187-122-115.a.free.pinggy.online/users`, {
                 method: "POST",
                 body: JSON.stringify({
                     name: name,
