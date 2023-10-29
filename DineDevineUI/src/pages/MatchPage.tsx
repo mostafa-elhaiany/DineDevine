@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {
     IonButton, IonButtons, IonModal,
-    IonContent, IonDatetime, IonDatetimeButton,
-    IonHeader, IonIcon,
+    IonContent, IonDatetime, IonDatetimeButton, IonSelectOption,
+    IonHeader, IonIcon, IonSelect,
     IonPage,
     IonTitle,
     IonToolbar,
@@ -67,7 +67,12 @@ const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) =>
                                     <IonButton  fill={"clear"} slot={"start"}>
                                         <IonIcon ios={personOutline} md={personOutline}/>
                                     </IonButton>
-                                    <span>{numberOfPeople}</span>
+                                    <IonSelect aria-label="2" placeholder="2">
+                                        <IonSelectOption value="2">2</IonSelectOption>
+                                        <IonSelectOption value="3">3</IonSelectOption>
+                                        <IonSelectOption value="4">4</IonSelectOption>
+                                        <IonSelectOption value="5">5</IonSelectOption>
+                                    </IonSelect>
                                 </div>
                                 <div className={"people-button"}>
                                     <IonButton fill={"clear"} slot={"start"}>
