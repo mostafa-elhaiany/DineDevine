@@ -4,8 +4,8 @@ import {
     IonBackButton,
     IonButton, IonButtons, IonCard, IonChip, IonCol,
     IonContent, IonGrid,
-    IonHeader, IonItem, IonList,
-    IonPage, IonPopover, IonRow, IonSelect, IonSelectOption,
+    IonHeader, IonImg, IonItem, IonList,
+    IonPage, IonPopover, IonRow, IonSelect, IonSelectOption, IonText,
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
@@ -135,6 +135,45 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                                         </IonContent>
                                     </IonPopover>
                                 </div>
+                            </IonCard>
+                        </IonCol>
+                    </IonRow>
+                    <IonRow>
+                        <IonCol>
+                            <IonCard className="achievements-card">
+                                <h1 className="ion-margin-start">Achievements</h1>
+                                <IonRow>
+                                    <IonCol className="ion-col"> {/* Use "ion-col" class here */}
+                                        <IonImg
+                                            src="./public/img/black-ribbon.png"
+                                            alt="Description for the black ribbon"
+                                        ></IonImg>
+                                        <IonText>Went out with everyone in the building</IonText>
+                                    </IonCol>
+                                    <IonCol className="ion-col"> {/* Use "ion-col" class here */}
+                                        <IonImg
+                                            src="./public/img/green-ribbon.png"
+                                            alt="Description for the green ribbon"
+                                        ></IonImg>
+                                        <IonText>Ate at 3 restaurants</IonText>
+                                    </IonCol>
+                                    <IonCol className="ion-col"> {/* Use "ion-col" class here */}
+                                        <IonImg
+                                            src="./public/img/orange-ribbon.png"
+                                            alt="Description for the orange ribbon"
+                                        ></IonImg>
+                                        <IonText>Ate vegan</IonText>
+                                    </IonCol>
+                                    <IonCol className="ion-col"> {/* Use "ion-col" class here */}
+                                        <IonImg
+                                            src="./public/img/empty.png"
+                                            alt="Description for the empty image"
+                                        ></IonImg>
+                                        <IonText>
+                                            Most liked
+                                        </IonText>
+                                    </IonCol>
+                                </IonRow>
                             </IonCard>
                         </IonCol>
                     </IonRow>
