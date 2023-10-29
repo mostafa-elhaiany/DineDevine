@@ -104,7 +104,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     </IonRow>
                     <IonRow>
                         <IonCol>
-                            <IonCard className = "interests-card">
+                            <IonCard>
                                 <h1 className={"ion-margin-start"}>Interests</h1>
                                 <div className={"ion-margin-start ion-margin-bottom"}>
                                     {interestsTAG.map((tag, idx) => <IonChip key={tag+idx} >{tag}</IonChip>)}
@@ -122,7 +122,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     </IonRow>
                     <IonRow>
                         <IonCol>
-                            <IonCard className = "dislikes-card">
+                            <IonCard>
                                 <h1 className={"ion-margin-start"}>Dislikes</h1>
                                 <div className={"ion-margin-start ion-margin-bottom"}>
                                     {dislikeTAG.map((tag, idx) => <IonChip key={tag+idx} >{tag}</IonChip>)}
@@ -135,7 +135,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                                         </IonContent>
                                     </IonPopover>
                                 </div>
-                            </IonCard
+                            </IonCard>
                         </IonCol>
                     </IonRow>
                     <IonRow>
@@ -177,7 +177,6 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                             </IonCard>
                         </IonCol>
                     </IonRow>
-
                 </IonGrid>
             </IonContent>
         </IonPage>
