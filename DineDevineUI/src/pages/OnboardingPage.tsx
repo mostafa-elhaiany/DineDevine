@@ -12,9 +12,11 @@ import {
 import './pages.css'
 import {RouteComponentProps} from "react-router";
 import {usePhotoGallery} from "../hooks/usePhotoGallery";
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 
 const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
+    defineCustomElements(window);
     useEffect(() => {
         const name = localStorage.getItem('name');
         const email = localStorage.getItem('email');
@@ -24,7 +26,6 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
             props.history.push("/match")
         }
     }, []);
-
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const { photos, takePhoto } = usePhotoGallery();
