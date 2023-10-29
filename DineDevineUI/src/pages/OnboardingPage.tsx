@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from 'react';
+import { camera, trash, close } from 'ionicons/icons';
 import {
-    IonButton, IonButtons,
-    IonContent, IonDatetime,
-    IonHeader, IonIcon, IonInput, IonItem,
+    IonAvatar,
+    IonButton,
+    IonContent,
+    IonHeader, IonInput, IonItem,
     IonPage,
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
 import './pages.css'
 import {RouteComponentProps} from "react-router";
+import {usePhotoGallery} from "../hooks/usePhotoGallery";
 
 
 const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
@@ -24,6 +27,7 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const { photos, takePhoto } = usePhotoGallery();
 
     const onSubmit = (e) => {
         console.log("Save: " + name)
@@ -42,6 +46,12 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
     const updateName = (e) => {
         setName(e.target.value)
     }
+
+    const addImage = async (e) => {
+        console.log("addImage")
+        await takePhoto()
+    }
+
     return (
         <IonPage>
             <IonHeader>
@@ -53,6 +63,11 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
                 <div className={"container"}>
                     <div></div>
                     <div className={"content-container"}>
+                        <div>
+                            <IonAvatar onClick={(e) => addImage(e)} className={"image"} class={"avatar"}>
+                                <img className={"image"}  src={"/test.png"}/>
+                            </IonAvatar>
+                        </div>
                         <IonItem>
                             <IonInput onIonInput={(event) => updateEmail(event)} value={email} label="Email input" type="email" placeholder="email@domain.com"></IonInput>
                         </IonItem>
