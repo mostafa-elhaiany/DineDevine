@@ -3,6 +3,7 @@ Pillow
 opencv-python
 scikit-learn
 pymongo
+openai
 torch 
 torchvision 
 mediapipe
