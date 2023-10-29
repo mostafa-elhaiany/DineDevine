@@ -40,7 +40,9 @@ const MatchPage: React.FC = () => {
                     <div className={"content-container"}>
                         {/*<span>Select Time:</span>*/}
                         {/*<IonDatetime locale="de-DE" presentation="time" />*/}
-                        <IonButton href={"/select-restaurant"} className={"match-button"} size="large">Find Match!</IonButton>
+                        <IonButton href={"/select-restaurant"} className={"match-button"} size="large">
+                            <img height={40} alt={"Find Match"} src={"/public/FindMatchText.png"} />
+                        </IonButton>
                         <div className={"status-bar"}>
                             <div className={"match-additional-info"} >
                                 <div className={"people-button"}>
