@@ -27,7 +27,7 @@
     max-height: 150px;
 }
 
-.avatarContainer{
+.avatarContainer {
     display: flex;
     justify-content: end;
 }
