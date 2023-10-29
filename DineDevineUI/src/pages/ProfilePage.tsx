@@ -143,7 +143,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                                     {Object.keys(PERONALITY_TYPES).filter((v) => isNaN(Number(v)) ).map((tag, idx) => <IonSelectOption key={tag+idx} id={"button" + tag}>{tag}</IonSelectOption>)}
                                 </IonSelect>
                                 <div className={"ion-margin-start"}>
-                                    You dont know your personality Type yet? <IonButton className={"ion-margin-bottom"}>TAKE THE PERSONALITY TEST</IonButton>
+                                    You dont know your personality Type yet? <IonButton href={"/quiz"} className={"ion-margin-bottom"}>TAKE THE PERSONALITY TEST</IonButton>
                                 </div>
 
                             </IonCard>
