@@ -53,7 +53,6 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
     const addImage = async () => {
         console.log("addImage")
         var b64 = await takePhoto()
-        //await delay(500)
         console.log("addImage2", b64)
         localStorage.setItem("photo", b64 )
         setPhoto(b64)
@@ -66,10 +65,6 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
         }
         return photo
 
-    }
-
-    function delay(ms: number) {
-        return new Promise( resolve => setTimeout(resolve, ms) );
     }
 
     return (

@@ -56,6 +56,15 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
     const [name, setName] = useState(localStorage.getItem("name"))
     const [email, setEmail] = useState(localStorage.getItem("email"))
     const [personalityType, setPersonalityType] = useState<string>(localStorage.getItem("personality") ?? "Default")
+    const [photo, setPhoto] = useState(localStorage.getItem("photo") ?? "")
+
+    function getAvatar() {
+        if (photo == "") {
+            return "/public/test.png"
+        }
+        return photo
+
+    }
 
     useEffect(() => {
         localStorage.setItem('interests', JSON.stringify(interestsTAG));
@@ -117,7 +126,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     <IonRow class={"ion-margin-top ion-margin-bottom"}>
                         <IonCol className={"avatarContainer"}>
                             <IonAvatar class={"avatar ion-margin-end"}>
-                                <img className={"image"}  src={"/public/test.png"}/>
+                                <img className={"image"}  src={getAvatar()}/>
                             </IonAvatar>
                         </IonCol>
 
