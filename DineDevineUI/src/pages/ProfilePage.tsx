@@ -1,22 +1,22 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {
     IonAvatar,
     IonBackButton,
     IonButton, IonButtons, IonCard, IonChip, IonCol,
     IonContent, IonGrid,
-    IonHeader,
-    IonPage, IonRow,
+    IonHeader, IonItem, IonList,
+    IonPage, IonPopover, IonRow, IonSelect, IonSelectOption,
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
+import "./ProfilePage.css"
 
 const enum interests {
-    hiking,
-    painting,
-    football,
-    basketball,
-    tennis,
-
+    Hiking,
+    Painting,
+    Football,
+    Basketball,
+    Tennis
 }
 
 export interface Profile {
@@ -24,8 +24,25 @@ export interface Profile {
 }
 
 const ProfilePage: React.FC<Profile> = (props: Profile) => {
-    const [interestsTAG, setInterestTags] = useState([])
-    const test = ["TestA", "TestB", "TestC"]
+    const [interestsTAG, setInterestTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("interests")?? "[]") ?? [])
+
+    useEffect(() => {
+        localStorage.setItem('interests', JSON.stringify(interestsTAG));
+    }, [interestsTAG]);
+
+    const addInterest = useCallback((e : React.MouseEvent<HTMLIonItemElement>) => {
+        const interest = e.target.innerText
+
+        if(interest == "+"){
+            return
+        }
+
+        console.log(interest)
+        const newInterests = [...interestsTAG, interest];
+        setInterestTags(newInterests);
+        console.log("update: " + interests)
+    }, [interestsTAG])
+
     return (
         <IonPage>
             <IonHeader>
@@ -43,8 +60,8 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
             </IonHeader>
             <IonContent fullscreen>
                 <IonGrid>
-                    <IonRow >
-                        <IonCol class={"avatarContainer"}>
+                    <IonRow>
+                        <IonCol className={"avatarContainer"}>
                             <IonAvatar class={"avatar"}>
                                 <img className={"image"}  src={"/public/test.png"}/>
                             </IonAvatar>
@@ -67,7 +84,15 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                             <IonCard>
                                 <h1 className={"ion-margin-start"}>Interests</h1>
                                 <div className={"ion-margin-start ion-margin-bottom"}>
-                                    {test.map((tag, idx) => <IonChip>{tag}</IonChip>)}
+                                    {interestsTAG.map((tag, idx) => <IonChip key={tag+idx} >{tag}</IonChip>)}
+                                    <IonChip id={"popover-button"} onClick={(e) => addInterest(e)}>+</IonChip>
+                                    <IonPopover trigger="popover-button" dismissOnSelect={true}>
+                                        <IonContent>
+                                            <IonList>
+                                                {Object.keys(interests).filter((v) => isNaN(Number(v)) && !interestsTAG.includes(v)).map((tag, idx) => <IonItem key={tag+idx} button={true} onClick={(e) => addInterest(e)} id={"button" + tag} detail={false}>{tag}</IonItem>)}
+                                            </IonList>
+                                        </IonContent>
+                                    </IonPopover>
                                 </div>
                             </IonCard>
                         </IonCol>
