@@ -31,6 +31,7 @@ import WaitingPage from "./pages/WaitingPage";
 import OnboardingPage from "./pages/OnboardingPage";
 import SelectRestaurantPage from "./pages/SelectRestaurantPage";
 import IcebreakerPage from "./pages/IcebreakerPage";
+import QuizPage from "./pages/QuizPage";
 
 setupIonicReact();
 
@@ -44,6 +45,8 @@ const App: React.FC = () => (
             <Route path="/waiting" component={WaitingPage} />
             <Route path="/icebreaker" component={IcebreakerPage} />
             <Route path="/select-restaurant" component={SelectRestaurantPage} />
+            <Route path="/quiz" component={QuizPage} />
+
             <Redirect exact from="/" to="/onboarding" />
         </IonRouterOutlet>
     </IonReactRouter>
