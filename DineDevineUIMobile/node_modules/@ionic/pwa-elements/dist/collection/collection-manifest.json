@@ -1,0 +1,16 @@
+{
+  "entries": [
+    "./components/action-sheet/action-sheet.js",
+    "./components/camera/camera.js",
+    "./components/camera-modal/camera-modal-instance.js",
+    "./components/camera-modal/camera-modal.js",
+    "./components/toast/toast.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "3.4.0",
+    "typescriptVersion": "5.0.4"
+  },
+  "collections": [],
+  "bundles": []
+}
