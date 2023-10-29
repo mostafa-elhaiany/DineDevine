@@ -116,3 +116,8 @@
     transition: all 150ms ease-in;
     filter: brightness(90%);
 }
+
+.bottom-spacer {
+    height: 2rem;
+}
+}

@@ -75,6 +75,7 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
                             <IonInput onIonInput={(event) => updateName(event)} value={name} label="Name input" placeholder="Enter your name"></IonInput>
                         </IonItem>
                         <IonButton onClick={onSubmit} type="submit">Submit</IonButton>
+                        <div className={"bottom-spacer"}/>
                     </div>
                 </div>
             </IonContent>
