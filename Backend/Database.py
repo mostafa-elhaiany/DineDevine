@@ -9,3 +9,4 @@ db = cluster['DineDevie'] # unfortunatly this is not a typo
 
 user_collection = db["Users"]
 enneagram_collection = db["Enneagram"]
+compatibilities_collection = db["Compatibility"]

@@ -31,7 +31,7 @@ def create():
     profile_pic_64 = request.json["image"]
     # TODO turn 64base string to image
 
-    ennegram = "INFJ" #TODO figure this out
+    ennegram = request.json["ennegram"] if "ennegram" in request.json or "enneagram" in request.json else None
 
     ID = str(ObjectId())
 
