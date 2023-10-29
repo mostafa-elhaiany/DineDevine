@@ -1,3 +1,109 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore platform-specific files
+platforms/
+plugins/
+www/
+
+# Ignore built files
+build/
+www-built/
+
+# Ignore configuration files
 .env
+.env.local
+.env.development
+.env.test
+.env.production
+*.config.js
+
+# Ignore logs
+*.log
+
+# Ignore macOS system files
 .DS_Store
-__pycache__
+
+# Ignore temporary files
+*.tmp
+
+# Ignore build artifacts
+*.apk
+*.aab
+*.ipa
+*.xcodeproj
+*.xcworkspace
+*.swp
+
+# Ignore dependency directories
+ios/Pods/
+ios/Podfile.lock
+ios/Podfile
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/build/
+android/capacitor-cordova-android-plugins/capacitor-cordova-android-plugins.iml
+
+# Ignore Gradle files
+.gradle/
+/build/
+
+# Ignore IDE files and directories
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+
+# Ignore npm logs
+npm-debug.log*
+
+# Ignore Android files
+*.iml
+android/local.properties
+android/capacitor-cordova-android-plugins/local.properties
+android/capacitor-cordova-android-plugins/cordova.cmd
+android/capacitor-cordova-android-plugins/gradle-wrapper.jar
+android/capacitor-cordova-android-plugins/cordova-wrapper.bat
+
+# Ignore iOS files
+ios/*.mode1v3
+ios/*.mode2v3
+ios/*.perspectivev3
+ios/*.pbxuser
+ios/*.xccheckout
+ios/*.xcscmblueprint
+ios/xcuserdata
+ios/*/xcshareddata
+ios/*/xcuserdata
+
+# Ignore macOS metadata files
+ios/*.xcodeproj/project.xcworkspace/xcuserdata
+ios/*.xcodeproj/xcuserdata
+
+# Ignore Android Studio files
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/tasks.xml
+/.idea/.name
+/.idea/.gitignore
+/.idea/gradle.xml
+/.idea/encodings.xml
+/.idea/misc.xml
+/.idea/vcs.xml
+.idea/*.iml
+.idea/modules
+.cordova
+node_modules
+build
+
+# Ignore capacitor plugins artifacts
+capacitor-cordova-android-plugins/cordova-cordova-android-plugins.gradle
+
+# Ignore app configuration
+capacitor.config.json
