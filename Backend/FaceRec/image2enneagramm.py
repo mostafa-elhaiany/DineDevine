@@ -20,7 +20,7 @@ def image2enneagramm(base64_string):
     return neigh.predict(features.reshape(1,-1))
 
 def getDataVector():
-    with open('FacialRecognition/data.csv', 'r') as datafile:
+    with open('FaceRec/data.csv', 'r') as datafile:
         datareader = csv.reader(datafile)
         datafile.seek(0)
         data = [] 
