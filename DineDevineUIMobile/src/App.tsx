@@ -36,6 +36,9 @@ import './theme/variables.css';
 import EmailInputPage from "./pages/Onboarding/EmailInputPage";
 import InterestInputPage from "./pages/Onboarding/InterestInputPage";
 import NameInputPage from "./pages/Onboarding/NameInputPage";
+import ProfilePage from "./pages/Profile/ProfilePage";
+import MatchPage from "./pages/Match/MatchPage";
+import './globals.css';
 
 setupIonicReact();
 
@@ -58,6 +61,12 @@ const App: React.FC = () => (
           </Route>
           <Route path="/interest-input">
             <InterestInputPage />
+          </Route>
+          <Route path="/profile">
+            <ProfilePage  id={"1"}/>
+          </Route>
+          <Route path="/match">
+            <MatchPage />
           </Route>
           <Route exact path="/">
             <Redirect to="/tab1" />
