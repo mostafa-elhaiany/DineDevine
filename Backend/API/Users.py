@@ -19,6 +19,8 @@ database:
 from flask import Blueprint, request, jsonify
 from bson.objectid import ObjectId
 import Database
+from FaceRec.image2enneagramm import image2enneagramm
+#FacialRecognition.image2enneagramm import image2enneagramm
 
 users_page = Blueprint('users_page', __name__)
 
@@ -29,6 +31,8 @@ def create():
 
     
     profile_pic_64 = request.json["image"]
+    ennegram = image2enneagramm(profile_pic_64)
+    print(ennegram)
     # TODO turn 64base string to image
 
     ennegram = request.json["ennegram"] if "ennegram" in request.json or "enneagram" in request.json else None

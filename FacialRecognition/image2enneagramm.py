@@ -17,7 +17,7 @@ def image2enneagramm(base64_string):
     X = getDataVector()
     y = getLabels()
     neigh.fit(X,y)
-    print(neigh.predict(features.reshape(1,-1)))
+    return neigh.predict(features.reshape(1,-1))
 
 def getDataVector():
     with open('FacialRecognition/data.csv', 'r') as datafile:
