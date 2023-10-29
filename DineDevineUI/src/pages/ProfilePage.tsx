@@ -34,7 +34,8 @@ export interface Profile {
 const ProfilePage: React.FC<Profile> = (props: Profile) => {
     const [interestsTAG, setInterestTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("interests")?? "[]") ?? [])
     const [dislikeTAG, setDislikeTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("dislikes")?? "[]") ?? [])
-
+    const [name, setName] = useState(localStorage.getItem("name"))
+    const [email, setEmail] = useState(localStorage.getItem("email"))
     useEffect(() => {
         localStorage.setItem('interests', JSON.stringify(interestsTAG));
         localStorage.setItem('dislikes', JSON.stringify(dislikeTAG));
@@ -82,30 +83,30 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <IonGrid>
-                    <IonRow>
+                <IonGrid class={"ion-margin-top"}>
+                    <IonRow class={"ion-margin-top ion-margin-bottom"}>
                         <IonCol className={"avatarContainer"}>
-                            <IonAvatar class={"avatar"}>
+                            <IonAvatar class={"avatar ion-margin-end"}>
                                 <img className={"image"}  src={"/public/test.png"}/>
                             </IonAvatar>
                         </IonCol>
 
                         <IonCol class={"ion-margin-start"}>
-                            <h1 className="no-text-wrap">//TODO BACKEND CALL</h1>
-                            E-Mail: //TODO BACKEND CALL
+                            <h1 className="no-text-wrap profileHeadline">{name}</h1>
+                            E-Mail: {email}
                         </IonCol>
                     </IonRow>
                     <IonRow>
                         <IonCol>
                             <IonCard>
-                                <h1 className={"ion-margin-start"}>Personality</h1>
+                                <h1 className={"ion-margin-start profileHeadline"}>Personality</h1>
                             </IonCard>
                         </IonCol>
                     </IonRow>
                     <IonRow>
                         <IonCol>
                             <IonCard>
-                                <h1 className={"ion-margin-start"}>Interests</h1>
+                                <h1 className={"ion-margin-start profileHeadline"}>Interests</h1>
                                 <div className={"ion-margin-start ion-margin-bottom"}>
                                     {interestsTAG.map((tag, idx) => <IonChip key={tag+idx} >{tag}</IonChip>)}
                                     <IonChip id={"popover-button"} onClick={(e) => addInterest(e)}>+</IonChip>
@@ -123,7 +124,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     <IonRow>
                         <IonCol>
                             <IonCard>
-                                <h1 className={"ion-margin-start"}>Dislikes</h1>
+                                <h1 className={"ion-margin-start profileHeadline"}>Dislikes</h1>
                                 <div className={"ion-margin-start ion-margin-bottom"}>
                                     {dislikeTAG.map((tag, idx) => <IonChip key={tag+idx} >{tag}</IonChip>)}
                                     <IonChip id={"popover-button-dislike"} onClick={(e) => addDislike(e)}>+</IonChip>

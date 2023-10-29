@@ -35,3 +35,7 @@
 .ion-delegate-host {
     background: white;
 }
+
+.profileHeadline {
+    font-family: PlaypenSansRegularFont, serif;
+}
