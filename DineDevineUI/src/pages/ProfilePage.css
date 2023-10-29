@@ -54,3 +54,12 @@
 .achievements-card ion-row ion-col {
     margin: 10px;
 }
+
+
+.profileHeadline {
+    font-family: PlaypenSansRegularFont, serif;
+}
+
+.persoSelect {
+    width: 20%;
+}

@@ -31,14 +31,45 @@ export interface Profile {
     id: string // the user id
 }
 
+const enum PERONALITY_TYPES{
+    INFP,
+    ENFP,
+    INFJ,
+    ENFJ,
+    INTJ,
+    ENTJ,
+    INTP,
+    ENTP,
+    ISFP,
+    ESFP,
+    ISTP,
+    ESTP,
+    ISFJ,
+    ESFJ,
+    ISTJ,
+    ESTJ
+}
+
 const ProfilePage: React.FC<Profile> = (props: Profile) => {
     const [interestsTAG, setInterestTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("interests")?? "[]") ?? [])
     const [dislikeTAG, setDislikeTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("dislikes")?? "[]") ?? [])
+    const [name, setName] = useState(localStorage.getItem("name"))
+    const [email, setEmail] = useState(localStorage.getItem("email"))
+    const [personalityType, setPersonalityType] = useState<string>(localStorage.getItem("personality") ?? "Default")
 
     useEffect(() => {
         localStorage.setItem('interests', JSON.stringify(interestsTAG));
         localStorage.setItem('dislikes', JSON.stringify(dislikeTAG));
-    }, [interestsTAG, dislikeTAG]);
+        localStorage.setItem('personality', personalityType)
+    }, [interestsTAG, dislikeTAG, personalityType]);
+
+    const changePersonality = useCallback((e : React.MouseEvent<HTMLIonItemElement>) => {
+        console.log("TRIGGERED")
+        const new_personality = e.detail.value
+
+
+        setPersonalityType(new_personality)
+    }, [personalityType])
 
     const addInterest = useCallback((e : React.MouseEvent<HTMLIonItemElement>) => {
         const interest = e.target.innerText
@@ -82,30 +113,37 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <IonGrid>
-                    <IonRow>
+                <IonGrid class={"ion-margin-top"}>
+                    <IonRow class={"ion-margin-top ion-margin-bottom"}>
                         <IonCol className={"avatarContainer"}>
-                            <IonAvatar class={"avatar"}>
+                            <IonAvatar class={"avatar ion-margin-end"}>
                                 <img className={"image"}  src={"/public/test.png"}/>
                             </IonAvatar>
                         </IonCol>
 
                         <IonCol class={"ion-margin-start"}>
-                            <h1 className="no-text-wrap">//TODO BACKEND CALL</h1>
-                            E-Mail: //TODO BACKEND CALL
+                            <h1 className="no-text-wrap profileHeadline">{name}</h1>
+                            E-Mail: {email}
                         </IonCol>
                     </IonRow>
                     <IonRow>
                         <IonCol>
                             <IonCard>
-                                <h1 className={"ion-margin-start"}>Personality</h1>
+                                <h1 className={"ion-margin-start profileHeadline"}>Personality</h1>
+                                <IonSelect className={"ion-margin-start persoSelect"} label={"Personality Type:"} placeholder={personalityType} onIonChange={(e) => changePersonality(e)} >
+                                    {Object.keys(PERONALITY_TYPES).filter((v) => isNaN(Number(v)) ).map((tag, idx) => <IonSelectOption key={tag+idx} id={"button" + tag}>{tag}</IonSelectOption>)}
+                                </IonSelect>
+                                <div className={"ion-margin-start"}>
+                                    You dont know your personality Type yet? <IonButton>TAKE THE PERSONALITY TEST</IonButton>
+                                </div>
+
                             </IonCard>
                         </IonCol>
                     </IonRow>
                     <IonRow>
                         <IonCol>
                             <IonCard>
-                                <h1 className={"ion-margin-start"}>Interests</h1>
+                                <h1 className={"ion-margin-start profileHeadline"}>Interests</h1>
                                 <div className={"ion-margin-start ion-margin-bottom"}>
                                     {interestsTAG.map((tag, idx) => <IonChip key={tag+idx} >{tag}</IonChip>)}
                                     <IonChip id={"popover-button"} onClick={(e) => addInterest(e)}>+</IonChip>
@@ -123,7 +161,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     <IonRow>
                         <IonCol>
                             <IonCard>
-                                <h1 className={"ion-margin-start"}>Dislikes</h1>
+                                <h1 className={"ion-margin-start profileHeadline"}>Dislikes</h1>
                                 <div className={"ion-margin-start ion-margin-bottom"}>
                                     {dislikeTAG.map((tag, idx) => <IonChip key={tag+idx} >{tag}</IonChip>)}
                                     <IonChip id={"popover-button-dislike"} onClick={(e) => addDislike(e)}>+</IonChip>
