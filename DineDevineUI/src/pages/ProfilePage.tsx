@@ -31,15 +31,45 @@ export interface Profile {
     id: string // the user id
 }
 
+const enum PERONALITY_TYPES{
+    INFP,
+    ENFP,
+    INFJ,
+    ENFJ,
+    INTJ,
+    ENTJ,
+    INTP,
+    ENTP,
+    ISFP,
+    ESFP,
+    ISTP,
+    ESTP,
+    ISFJ,
+    ESFJ,
+    ISTJ,
+    ESTJ
+}
+
 const ProfilePage: React.FC<Profile> = (props: Profile) => {
     const [interestsTAG, setInterestTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("interests")?? "[]") ?? [])
     const [dislikeTAG, setDislikeTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("dislikes")?? "[]") ?? [])
     const [name, setName] = useState(localStorage.getItem("name"))
     const [email, setEmail] = useState(localStorage.getItem("email"))
+    const [personalityType, setPersonalityType] = useState<string>(localStorage.getItem("personality") ?? "Default")
+
     useEffect(() => {
         localStorage.setItem('interests', JSON.stringify(interestsTAG));
         localStorage.setItem('dislikes', JSON.stringify(dislikeTAG));
-    }, [interestsTAG, dislikeTAG]);
+        localStorage.setItem('personality', personalityType)
+    }, [interestsTAG, dislikeTAG, personalityType]);
+
+    const changePersonality = useCallback((e : React.MouseEvent<HTMLIonItemElement>) => {
+        console.log("TRIGGERED")
+        const new_personality = e.detail.value
+
+
+        setPersonalityType(new_personality)
+    }, [personalityType])
 
     const addInterest = useCallback((e : React.MouseEvent<HTMLIonItemElement>) => {
         const interest = e.target.innerText
@@ -100,6 +130,13 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                         <IonCol>
                             <IonCard>
                                 <h1 className={"ion-margin-start profileHeadline"}>Personality</h1>
+                                <IonSelect className={"ion-margin-start persoSelect"} label={"Personality Type:"} placeholder={personalityType} onIonChange={(e) => changePersonality(e)} >
+                                    {Object.keys(PERONALITY_TYPES).filter((v) => isNaN(Number(v)) ).map((tag, idx) => <IonSelectOption key={tag+idx} id={"button" + tag}>{tag}</IonSelectOption>)}
+                                </IonSelect>
+                                <div className={"ion-margin-start"}>
+                                    You dont know your personality Type yet? <IonButton>TAKE THE PERSONALITY TEST</IonButton>
+                                </div>
+
                             </IonCard>
                         </IonCol>
                     </IonRow>
