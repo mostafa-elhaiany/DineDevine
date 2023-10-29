@@ -7,6 +7,7 @@ import {
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
+import './pages.css'
 import {RouteComponentProps} from "react-router";
 
 
@@ -14,7 +15,7 @@ const WaitingPage: React.FC<RouteComponentProps> = (props, context) => {
     useEffect(() => {
         setTimeout(() => {
             props.history.push('/icebreaker');
-        }, 10000)
+        }, 60000)
     }, []);
 
     return (
@@ -30,7 +31,7 @@ const WaitingPage: React.FC<RouteComponentProps> = (props, context) => {
                         <img alt={"two people meeting"} src={"/waiting.gif"}  />
                     </div>
                     <div className={"content-container"}>
-                        <span></span>
+                        <span className={"disclaimer"}>Please be patient, this could take a while...</span>
                     </div>
                 </div>
             </IonContent>
