@@ -13,7 +13,7 @@ import { personCircleOutline, personOutline, timeOutline } from 'ionicons/icons'
 
 const MatchPage: React.FC = () => {
     const [numberOfPeople, setNumberOfPeople] = useState(2)
-    const currentDate = ("0" + new Date().getHours()).slice(-4) + ":00"
+    const currentDate = `${new Date().getHours() + 1}`.slice(-4) + ":00"
     const [time, setTime] = useState(currentDate)
 
     return (

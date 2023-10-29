@@ -13,7 +13,7 @@ import {
 import "./pages.css"
 import {RouteComponentProps} from "react-router";
 
-const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
+    const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
     const [restaurants, setRestaurants] = useState([
         "Mensa",
         "Hotel Restaurant Löwen",
