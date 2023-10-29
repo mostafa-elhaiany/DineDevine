@@ -8,7 +8,6 @@ import {
     IonToolbar,
 } from '@ionic/react';
 import './pages.css'
-import { personCircleOutline, personOutline, timeOutline } from 'ionicons/icons';
 import {RouteComponentProps} from "react-router";
 
 
@@ -25,7 +24,7 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    
+
     const onSubmit = (e) => {
         console.log("Save: " + name)
         console.log("Save: " + email)

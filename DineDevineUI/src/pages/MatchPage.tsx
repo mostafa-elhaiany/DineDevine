@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     IonButton, IonButtons,
     IonContent, IonDatetime,
@@ -9,12 +9,23 @@ import {
 } from '@ionic/react';
 import './pages.css'
 import { personCircleOutline, personOutline, timeOutline } from 'ionicons/icons';
+import {RouteComponentProps} from "react-router";
 
 
-const MatchPage: React.FC = () => {
+const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
     const [numberOfPeople, setNumberOfPeople] = useState(2)
     const currentDate = `${new Date().getHours() + 1}`.slice(-4) + ":00"
     const [time, setTime] = useState(currentDate)
+
+    useEffect(() => {
+        const name = localStorage.getItem('name');
+        const email = localStorage.getItem('email');
+        
+        // Name or E-Mai is not filled out. Go back to onboarding
+        if(name == null || email == null){
+            props.history.push("/")
+        }
+    }, []);
 
     return (
         <IonPage>
