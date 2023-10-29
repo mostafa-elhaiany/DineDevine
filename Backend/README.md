@@ -81,3 +81,30 @@ The Enneagram database looks like the following:
 
 Returns information about the enneagram with id
 ```
+
+
+## Matching API
+API for creating the matching system, offers an API to create a 2 people match (generizeable to n people groups) as well as ice breakers
+
+### Match Creation
+
+```
+("/matches/<id>",methods=("GET",))
+
+Returns     compatibilities = {
+        "1":[id1, id2, ....], # best
+        "2":[id1, id2, ....],
+        "3":[id1, id2, ....],
+        "4":[id1, id2, ....], 
+        "5":[id1, id2, ....], # worse
+    }
+not necessarily all filled 
+```
+
+### Ice Breaker Generation
+
+```
+("/matches/icebreaker/<id1>/<id2>",methods=("GET",))
+
+Returns     questions = ["question1", "question2", ...]
+```
