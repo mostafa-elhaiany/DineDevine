@@ -19,16 +19,26 @@ const enum interests {
     Tennis
 }
 
+const enum dislikes {
+    Hiking,
+    Painting,
+    Football,
+    Basketball,
+    Tennis
+}
+
 export interface Profile {
     id: string // the user id
 }
 
 const ProfilePage: React.FC<Profile> = (props: Profile) => {
     const [interestsTAG, setInterestTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("interests")?? "[]") ?? [])
+    const [dislikeTAG, setDislikeTags] = useState<Array<string>>(JSON.parse(localStorage.getItem("dislikes")?? "[]") ?? [])
 
     useEffect(() => {
         localStorage.setItem('interests', JSON.stringify(interestsTAG));
-    }, [interestsTAG]);
+        localStorage.setItem('dislikes', JSON.stringify(dislikeTAG));
+    }, [interestsTAG, dislikeTAG]);
 
     const addInterest = useCallback((e : React.MouseEvent<HTMLIonItemElement>) => {
         const interest = e.target.innerText
@@ -42,6 +52,19 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
         setInterestTags(newInterests);
         console.log("update: " + interests)
     }, [interestsTAG])
+
+    const addDislike = useCallback((e : React.MouseEvent<HTMLIonItemElement>) => {
+        const dislike = e.target.innerText
+
+        if(dislike == "+"){
+            return
+        }
+
+        console.log(dislike)
+        const newDislike = [...dislikeTAG, dislike];
+        setDislikeTags(newDislike);
+        console.log("update: " + dislikes)
+    }, [dislikeTAG])
 
     return (
         <IonPage>
@@ -101,6 +124,17 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                         <IonCol>
                             <IonCard>
                                 <h1 className={"ion-margin-start"}>Dislikes</h1>
+                                <div className={"ion-margin-start ion-margin-bottom"}>
+                                    {dislikeTAG.map((tag, idx) => <IonChip key={tag+idx} >{tag}</IonChip>)}
+                                    <IonChip id={"popover-button-dislike"} onClick={(e) => addDislike(e)}>+</IonChip>
+                                    <IonPopover trigger="popover-button-dislike" dismissOnSelect={true}>
+                                        <IonContent>
+                                            <IonList>
+                                                {Object.keys(dislikes).filter((v) => isNaN(Number(v)) && !dislikeTAG.includes(v)).map((tag, idx) => <IonItem key={tag+idx} button={true} onClick={(e) => addDislike(e)} id={"button" + tag} detail={false}>{tag}</IonItem>)}
+                                            </IonList>
+                                        </IonContent>
+                                    </IonPopover>
+                                </div>
                             </IonCard>
                         </IonCol>
                     </IonRow>
