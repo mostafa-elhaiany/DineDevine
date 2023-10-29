@@ -56,6 +56,15 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
     const [name, setName] = useState(localStorage.getItem("name"))
     const [email, setEmail] = useState(localStorage.getItem("email"))
     const [personalityType, setPersonalityType] = useState<string>(localStorage.getItem("personality") ?? "Default")
+    const [photo, setPhoto] = useState(localStorage.getItem("photo") ?? "")
+
+    function getAvatar() {
+        if (photo == "") {
+            return "/public/test.png"
+        }
+        return photo
+
+    }
 
     useEffect(() => {
         localStorage.setItem('interests', JSON.stringify(interestsTAG));
@@ -99,7 +108,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
 
     return (
         <IonPage>
-            <IonHeader>
+            <IonHeader className={"profileHeader"}>
                 <IonToolbar>
                     <IonButtons slot="start">
                         <IonBackButton defaultHref="/"></IonBackButton>
@@ -112,18 +121,18 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
+            <IonContent fullscreen class={"profileContainer"}>
                 <IonGrid class={"ion-margin-top"}>
                     <IonRow class={"ion-margin-top ion-margin-bottom"}>
                         <IonCol className={"avatarContainer"}>
                             <IonAvatar class={"avatar ion-margin-end"}>
-                                <img className={"image"}  src={"/public/test.png"}/>
+                                <img className={"image"}  src={getAvatar()}/>
                             </IonAvatar>
                         </IonCol>
 
                         <IonCol class={"ion-margin-start"}>
                             <h1 className="no-text-wrap profileHeadline">{name}</h1>
-                            E-Mail: {email}
+                            {email}
                         </IonCol>
                     </IonRow>
                     <IonRow>
@@ -179,7 +188,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
                     <IonRow>
                         <IonCol>
                             <IonCard className="achievements-card">
-                                <h1 className="ion-margin-start">Achievements</h1>
+                                <h1 className="ion-margin-start profileHeadline">Achievements</h1>
                                 <IonRow>
                                     <IonCol className="ion-col"> {/* Use "ion-col" class here */}
                                         <IonImg

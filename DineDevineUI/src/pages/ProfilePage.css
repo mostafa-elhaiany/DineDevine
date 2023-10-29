@@ -63,3 +63,11 @@
 .persoSelect {
     width: 20%;
 }
+
+.profileContainer {
+    --ion-background-color: linear-gradient(0deg, #FDF9F6, #FFFAF5);
+}
+
+.profileHeader {
+    --ion-background-color: white;
+}
