@@ -30,7 +30,7 @@ def getDataVector():
         return data
     
 def getLabels():
-    with open('FacialRecognition/data.csv', 'r') as datafile:
+    with open('FaceRec/data.csv', 'r') as datafile:
         datareader = csv.reader(datafile)
         datafile.seek(0)
         y = []
