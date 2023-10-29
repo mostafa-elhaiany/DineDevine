@@ -2,11 +2,11 @@ import os
 import csv
 import sys
 import numpy as np
-from extract_feature import ResnetFeatureExtractor
+from extract_feature import get_feature_vector
+import cv2
 class Label:
     def __init__(self, root):
         self.root = root
-        self.resnet = ResnetFeatureExtractor()
         self.personalities = ["ENFJ", "ENFP", "ENTJ", "ENTP", "ESFJ", "ESFP", "ESTJ", "ESTP", "INFJ", "INFP", "INTJ", "INTP", "ISFJ", "ISFP", "ISTJ", "ISTP"]
 
     def createCSV(self):
@@ -17,11 +17,13 @@ class Label:
                 for file in files:
                     if ".png" in file or ".jpeg" in file:
                         path = root + "/" + file
-                        features = self.resnet.get_feature_vector(path)
+                        
+                        img = cv2.imread(path)
+                        features = get_feature_vector(img)
                         personality = os.path.basename(root)
                         writer.writerow([personality, features])
 
             datafile.close()
 
-labeler = Label("FacialRecognition")
+labeler = Label(".")
 labeler.createCSV()
