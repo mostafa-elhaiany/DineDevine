@@ -1,7 +1,8 @@
 # Ionic React Capacitor Frontend PWA App
-![Screenshot 1](./public/img/screenshot1.png)
-![Screenshot 2](./public/img/screenshot2.png)
-![GIF Example](./public/match-placeholder-unscreen.gif)
+
+|                                               |                                                |
+| --------------------------------------------- | ---------------------------------------------- |
+| ![Screenshot 1](./public/img/screenshot1.png) | ![Screenshot 2](./public/img/screenshot2.png)  |
 
 This is an Ionic React Capacitor-based Progressive Web App (PWA) for building cross-platform web and mobile applications.
 
@@ -60,3 +61,4 @@ ionic serve
 ```
 This will start a local development server and open the app in your web browser. You can make changes and see them immediately.
 
+![GIF Example](./public/match-placeholder-unscreen.gif)
