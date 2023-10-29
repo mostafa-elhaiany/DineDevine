@@ -31,8 +31,8 @@ const WaitingPage: React.FC<RouteComponentProps> = (props, context) => {
             </IonHeader>
             <IonContent>
                 <div className={"container"} >
-                    <div>
-                        {/*Fill remaining space*/}
+                    <div className={"image-container"}>
+                        <img alt={"two people meeting"} src={"/waiting.gif"}  />
                     </div>
                     <div className={"content-container"}>
                         <span>Test</span>

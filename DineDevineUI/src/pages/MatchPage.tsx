@@ -53,13 +53,13 @@ const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) =>
                 <div className={"container"} >
                     <div className={"video-container"}>
                         {/*Fill remaining space*/}
-                        <img className={"video"} src="/public/match-placeholder-unscreen.gif"></img>
+                        <img className={"video"} src="/match-placeholder-unscreen.gif"></img>
                     </div>
                     <div className={"content-container"}>
                         {/*<span>Select Time:</span>*/}
                         {/*<IonDatetime locale="de-DE" presentation="time" />*/}
                         <IonButton href={"/select-restaurant"} className={"match-button"} size="large">
-                            <img height={40} alt={"Find Match"} src={"/public/FindMatchText.png"} />
+                            <img height={40} alt={"Find Match"} src={"/FindMatchText.png"} />
                         </IonButton>
                         <div className={"status-bar"}>
                             <div className={"match-additional-info"} >

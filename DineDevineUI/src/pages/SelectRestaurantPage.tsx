@@ -54,8 +54,8 @@ import {RouteComponentProps} from "react-router";
 
             <IonContent>
                 <div className={"container"}>
-                    <div>
-                        <img alt={"image of restaurant"} src={"/restaurant_transparent.png"}  />
+                    <div className={"image-container"}>
+                        <img className={"max-height-img"} alt={"image of restaurant"} src={"/restaurant_transparent.png"}  />
                     </div>
                     <div className={"content-container"}>
                         <div>
@@ -91,7 +91,6 @@ import {RouteComponentProps} from "react-router";
                         <div className={"select-restaurant-button-section"}>
                             <IonButton onClick={onSelectRestaurantClicked} href={"/waiting"} className={"select-restaurant-button"} size="default">Looks good!</IonButton>
                         </div>
-                        <div className={"bottom-spacer"}/>
                     </div>
                 </div>
             </IonContent>
