@@ -36,6 +36,26 @@
     background: white;
 }
 
+/* Add this CSS code to your styles.css (or equivalent) file */
+.achievements-card .ion-col {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optional: Add spacing between the icons and text */
+.achievements-card .ion-col ion-img {
+    margin-bottom: 10px;
+}
+
+/* Optional: Increase the spacing between columns */
+.achievements-card ion-row ion-col {
+    margin: 10px;
+}
+
+
 .profileHeadline {
     font-family: PlaypenSansRegularFont, serif;
 }

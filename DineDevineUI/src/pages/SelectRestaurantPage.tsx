@@ -89,6 +89,7 @@ import {RouteComponentProps} from "react-router";
                         <div className={"select-restaurant-button-section"}>
                             <IonButton onClick={onSelectRestaurantClicked} href={"/waiting"} className={"select-restaurant-button"} size="default">Looks good!</IonButton>
                         </div>
+                        <div className={"bottom-spacer"}/>
                     </div>
                 </div>
             </IonContent>

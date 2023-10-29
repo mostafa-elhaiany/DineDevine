@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {
-    IonButton, IonButtons,
-    IonContent, IonDatetime,
-    IonHeader, IonIcon,
+    IonButton, IonButtons, IonModal,
+    IonContent, IonDatetime, IonDatetimeButton, IonSelectOption,
+    IonHeader, IonIcon, IonSelect,
     IonPage,
     IonTitle,
     IonToolbar,
@@ -16,6 +16,13 @@ const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) =>
     const [numberOfPeople, setNumberOfPeople] = useState(2)
     const currentDate = `${new Date().getHours() + 1}`.slice(-4) + ":00"
     const [time, setTime] = useState(currentDate)
+    const enum interests {
+        Hiking,
+        Painting,
+        Football,
+        Basketball,
+        Tennis
+    }
 
     useEffect(() => {
         const name = localStorage.getItem('name');
@@ -60,13 +67,21 @@ const MatchPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) =>
                                     <IonButton  fill={"clear"} slot={"start"}>
                                         <IonIcon ios={personOutline} md={personOutline}/>
                                     </IonButton>
-                                    <span>{numberOfPeople}</span>
+                                    <IonSelect aria-label="2" placeholder="2">
+                                        <IonSelectOption value="2">2</IonSelectOption>
+                                        <IonSelectOption value="3">3</IonSelectOption>
+                                        <IonSelectOption value="4">4</IonSelectOption>
+                                        <IonSelectOption value="5">5</IonSelectOption>
+                                    </IonSelect>
                                 </div>
                                 <div className={"people-button"}>
                                     <IonButton fill={"clear"} slot={"start"}>
                                         <IonIcon ios={timeOutline} md={timeOutline}/>
+                                        <IonDatetimeButton datetime="datetime"></IonDatetimeButton>
+                                        <IonModal keepContentsMounted={true}>
+                                            <IonDatetime presentation="time" id="datetime"></IonDatetime>
+                                        </IonModal>
                                     </IonButton>
-                                    <span>{time}</span>
                                 </div>
                             </div>
                         </div>
