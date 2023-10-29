@@ -32,6 +32,28 @@ def get_personality_from_questionnaire(data):
     print(f"The nearest neighbor is labeled as {predicted_label[0]}")
     return predicted_label[0]
 
+def findKNearestNeighbors(all_users, user, neighborCnt=10):
+    '''
+    all_users: 2d array of nx60
+    user: 1d array of 1x60
+    return: list of nearest neighbors
+    '''
+    distances = []
+    all_users = np.array(all_users)
+    user = np.array(user)
+
+    for i in range(0, len(all_users)):
+        distance = np.linalg.norm(all_users[i] - user)
+        distances.append((distance, i))
+    sorted_distances = sorted(distances, key=lambda x: x[0])
+    filtered_neighbors = [sorted_distances[i][1] for i in range(min(neighborCnt, len(sorted_distances)))]
+
+    return filtered_neighbors
+
+
 #new_data = [[0, 1, -1, 3, 2, 2, -2, -2, 2, 2, -2, -1, -1, 0, -1, 1, 3, -1, -3, 2, 3, 2, -3, -3, 3, -1, -2, -2, 2, 2,
 #             0, 3, 1, -1, -3, 0, 2, 2, 0, 3, 0, 2, 3, 2, 3, 2, -3, -3, -1, 1, 3, 0, 2, 0, -1, 1, 1, -3, 2, 3]]
 #get_personality_from_questionnaire(new_data)
+
+#users, _ = getDataFromCSV()
+#print(findKNearestNeighbors(users, users[0]))
