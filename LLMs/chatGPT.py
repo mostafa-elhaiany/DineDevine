@@ -27,7 +27,7 @@ Generate the corresponding icebreaker questions for this input: \
 <input>: [{tags1}] [{tags2}]"
 
   msg = [{"role": "user", "content": f"{gptPrompt}"}]
-  openai.api_key = open(os.environ["openai_api"], "r").read()
+  openai.api_key = os.environ["openai_api"]
   return query(msg, model_name, tmp)[:10].split("?")
 
 
@@ -49,7 +49,7 @@ Icebreakers: {icebreakers}\
 Answer with only Yes or No "
 
   msg = [{"role": "user", "content": f"{gptPrompt}"}]
-  openai.api_key = open(os.environ["openai_api"], "r").read()
+  openai.api_key = os.environ["openai_api"]
   res = query(msg, model_name, tmp)
 
   if res.lower() == "yes":

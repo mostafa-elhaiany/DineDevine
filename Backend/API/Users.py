@@ -31,10 +31,11 @@ def create():
 
     
     profile_pic_64 = request.json["image"]
-    ennegram = image2enneagramm(profile_pic_64)
-    print(ennegram)
-    # TODO turn 64base string to image
-
+    try:
+        ennegram = image2enneagramm(profile_pic_64)
+    except:
+        ennegram = "INFJ"    
+    
     ennegram = request.json["ennegram"] if "ennegram" in request.json or "enneagram" in request.json else None
 
     ID = str(ObjectId())
@@ -61,7 +62,7 @@ def read_all():
     user_list = []
     for item in users:
         user_dict = {
-            "ID": item["ID"],
+            "ID": str(item["ID"]),
             "name": item["name"],
             "email": item["email"],
             "ennegram": item["ennegram"],
@@ -78,7 +79,7 @@ def read_all():
 def read(id):
     item = Database.user_collection.find_one({"ID":id})
     user_dict = {
-            "ID": item["ID"],
+            "ID": str(item["ID"]),
             "name": item["name"],
             "email": item["email"],
             "ennegram": item["ennegram"],
