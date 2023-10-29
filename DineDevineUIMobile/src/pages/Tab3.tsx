@@ -1,25 +1,132 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Tab3.css';
+import React from 'react';
+import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCol, IonList, IonItem, IonRow} from '@ionic/react';
+import ChipsListPage from '../pages/Onboarding/ChipsListPage';
+import "./Tab3.css"
 
 const Tab3: React.FC = () => {
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 3</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 3</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Tab 3 page" />
-      </IonContent>
-    </IonPage>
-  );
+    const cultureChipsArray = [
+        "Culture",
+        "Greek Cuisine",
+        "Turkish Languages and Linguistics",
+        "Italian Art and Art History",
+        "Latin American Cultural Music and Dance",
+        "Nordic Folklore and Mythology",
+        "Asian Travel and Exploration",
+        "Ancient History and Archaeology",
+        "Cultural Festivals and Celebrations Around the World",
+        "Fashion and Clothing Traditions",
+        "Literature from Different Cultures"
+    ];
+
+    const sportsChipsArray = [
+        "Sports",
+        "Soccer",
+        "Basketball",
+        "Tennis",
+        "Golf",
+        "Swimming",
+        "Cycling",
+        "Track and Field",
+        "Baseball",
+        "Martial Arts",
+        "Winter Sports"
+    ];
+
+    const foodsChipsArray = [
+        "Foods",
+        "Italian Cuisine",
+        "Asian Cuisine",
+        "Mediterranean Cuisine",
+        "Desserts",
+        "Vegetarian",
+        "Seafood",
+        "Street Food",
+        "Baking",
+        "BBQ",
+        "Spices and Seasonings"
+    ];
+
+    const interestsChipsArray = [
+        "Interests",
+        "Music",
+        "Technology",
+        "Books",
+        "Art",
+        "History",
+        "Science",
+        "Travel",
+        "Fashion",
+        "Hobbies",
+        "Outdoor Activities"
+    ];
+
+    const moviesChipsArray = [
+        "Movies",
+        "Action",
+        "Comedy",
+        "Drama",
+        "Horror",
+        "Sci-Fi",
+        "Romance",
+        "Animation",
+        "Documentaries",
+        "Classics",
+        "Fantasy"
+    ];
+
+    const hobbiesChipsArray = [
+        "Hobbies",
+        "Photography",
+        "Gardening",
+        "Cooking",
+        "Painting",
+        "Collecting",
+        "Woodworking",
+        "Hiking",
+        "Fishing",
+        "Cycling",
+        "Crafts"
+    ];
+
+    const travelChipsArray = [
+        "Travel Destinations",
+        "Beaches",
+        "Mountains",
+        "Cities",
+        "National Parks",
+        "Historical Sites",
+        "Islands",
+        "Adventure Travel",
+        "Cruise Vacations",
+        "Cultural Exploration",
+        "Ecotourism"
+    ];
+
+    const languagesChipsArray = [
+        "Languages",
+        "Spanish",
+        "French",
+        "German",
+        "Japanese",
+        "Arabic",
+        "Chinese",
+        "Russian",
+        "Portuguese",
+        "Hindi",
+        "Korean"
+    ];
+
+
+    return (
+        <IonPage>
+            <IonContent>
+                <IonRow>
+                    <ChipsListPage data={cultureChipsArray} />
+                    <ChipsListPage data={sportsChipsArray} />
+                </IonRow>
+            </IonContent>
+        </IonPage>
+    );
 };
 
 export default Tab3;

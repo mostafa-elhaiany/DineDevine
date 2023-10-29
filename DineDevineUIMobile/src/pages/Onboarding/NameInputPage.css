@@ -1,0 +1,54 @@
+/* NameInputPage.css */
+
+.page-content {
+    padding: 20px; /* Adjust the padding for thickness */
+}
+
+
+.rounded-button {
+    padding: 50px 0;
+    margin-bottom: 20px;
+    height: 150px; /* Set the desired height */
+    border-radius: 20px; /* Set the border-radius for a rounded appearance */
+}
+
+.page-title {
+    font-size: 30pt;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.page-text {
+    text-align: center;
+}
+
+.lottie-animation{
+    width: 100%; /* Set the width to 50% of the container */
+    height: 100%; /* Set the height to 50% of the container */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.lottie-text-container {
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    justify-content: center; /* Horizontally center the text */
+}
+
+.centered-text {
+    font-family: Helvetica;
+    font-weight: bolder; /* Make text bold */
+    font-size: 16pt; /* Make text big, adjust size as needed */
+    text-align: center; /* Center text horizontally */
+    background: #ff4961;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: block;
+}
+.lottie-card{
+    border-radius: 15px;
+    --background: linear-gradient(30deg, #0d0d0d,   #000000);
+
+}
