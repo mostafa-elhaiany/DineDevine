@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import './pages.css'
 import {RouteComponentProps} from "react-router";
-import {usePhotoGallery} from "../hooks/usePhotoGallery";
+import {base64FromPath, usePhotoGallery} from "../hooks/usePhotoGallery";
 
 
 const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
@@ -27,6 +27,7 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [photo, setPhoto] = useState(localStorage.getItem('email') ?? "")
     const { photos, takePhoto } = usePhotoGallery();
 
     const onSubmit = (e) => {
@@ -47,9 +48,24 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
         setName(e.target.value)
     }
 
-    const addImage = async (e) => {
+    const addImage = async () => {
         console.log("addImage")
         await takePhoto()
+        if(photos.length != 1)
+            return
+        const b64 = await base64FromPath(photos[0].webviewPath)
+        console.log(b64)
+        localStorage.setItem("photo", b64 )
+        setPhoto(b64)
+
+    }
+
+    function getAvatar() {
+        if (photo == "") {
+            return "/public/test.png"
+        }
+        return photo
+
     }
 
     return (
@@ -64,8 +80,8 @@ const OnboardingPage: React.FC<RouteComponentProps> = (props: RouteComponentProp
                     <div></div>
                     <div className={"content-container"}>
                         <div>
-                            <IonAvatar onClick={(e) => addImage(e)} className={"image"} class={"avatar"}>
-                                <img className={"image"}  src={"/test.png"}/>
+                            <IonAvatar onClick={async() => await addImage()} className={"image"} class={"avatar"}>
+                                <img className={"image"}  src={getAvatar()}/>
                             </IonAvatar>
                         </div>
                         <IonItem>

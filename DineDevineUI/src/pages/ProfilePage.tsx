@@ -123,7 +123,7 @@ const ProfilePage: React.FC<Profile> = (props: Profile) => {
 
                         <IonCol class={"ion-margin-start"}>
                             <h1 className="no-text-wrap profileHeadline">{name}</h1>
-                            E-Mail: {email}
+                            {email}
                         </IonCol>
                     </IonRow>
                     <IonRow>
